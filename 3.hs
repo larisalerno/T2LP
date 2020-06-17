@@ -5,22 +5,19 @@
 -- └────────────────────────────────────────────────────┘
 
 -- Função Mymap
--- mymap :: (a -> b) -> (a -> b) -> [a] -> [b]
--- mymap _ _ [] = []
--- mymap funcA funcB (xs:xss) = funcA xs : mymap funcB funcA xss
+mymap :: (a -> b) -> (a -> b) -> [a] -> [b]
+mymap _ _ [] = []
+mymap funcA funcB (xs:xss) = funcA xs : mymap funcB funcA xss
 
--- Multiplicador da Função Luhn
-luhnDouble :: Int -> [Int] -> [Int]
-luhnDouble x xs | value < 9 = value:(drop 1 xs)
-                | otherwise = value - 9:(drop 1 xs) 
-                  where
-                    value = x * 2
+luhnDouble :: [Int] -> [Int]
+luhnDouble [] = []
+luhnDouble xs =  if (head xs)*2 < 9 then (head xs)*2:luhnDouble (tail xs) else ((head xs)*2)-9: luhnDouble (tail xs)
+
+-- main = print(luhnDouble [1,3,5,9,10])
+
+luhn :: [Int] -> Bool
+luhn xs = (sum (luhnDouble xs)) `mod` 10 == 0
 
 
--- main = print(luhnDouble 2 [1,2,3,4])
 
-luhn :: [Int] -> Int
-luhn xs = (sum (luhnDouble (head xs) xs )
-
-main = print(luhn [1,2,3,4])
 
