@@ -6,6 +6,6 @@
 
 mymap :: (a -> b) -> (a -> b) -> [a] -> [b]
 mymap _ _ [] = []
-myMap funcA funcB (xs:xss) = funcA xs : myMap funcB funcA xss
+mymap funcA funcB (xs:xss) = funcA xs : mymap funcB funcA xss
 
-main = print(myMap (+3) (*10) [0,1,2,3,4,11])
+main = print(mymap (+3) (*10) [0,1,2,3,4,11])
