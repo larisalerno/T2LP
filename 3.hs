@@ -5,9 +5,9 @@
 -- └────────────────────────────────────────────────────┘
 
 -- Função Mymap
-mymap :: (a -> b) -> (a -> b) -> [a] -> [b]
-mymap _ _ [] = []
-mymap funcA funcB (xs:xss) = funcA xs : mymap funcB funcA xss
+myMap :: (a -> b) -> (a -> b) -> [a] -> [b]
+myMap _ _ [] = []
+myMap funcA funcB (xs:xss) = funcA xs : myMap funcB funcA xss
 
 luhnDouble :: [Int] -> [Int]
 luhnDouble [] = []
