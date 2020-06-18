@@ -21,4 +21,5 @@ octalToDec :: String -> Int
 octalToDec [] = 0
 octalToDec xs = if (testeValue xs) == True then 0 else octoCalc (length xs) (getInt(getString (head xs))) + octalToDec (tail xs) 
 
-testeOctalToDec = print(octalToDec "23")
+main = print(octalToDec "23")
+main2 = print(octalToDec "1Aa3")
