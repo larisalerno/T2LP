@@ -18,6 +18,6 @@ octoCalc i value = value*(8^(i-1))
 
 octalToDec :: String -> Int
 octalToDec [] = 0
-octalToDec xs = if (getInt(getString (head xs))) == -1 then 0 else octoCalc (length xs) (getInt(getString (head xs))) + octalToDec (tail xs) 
+octalToDec xs = if (getInt(getString(head xs))) == -1 then octalToDec (drop (length xs) xs ) else octoCalc (length xs) (getInt(getString (head xs))) + octalToDec (tail xs) 
 
 testeOctalToDec = print(octalToDec "23")
